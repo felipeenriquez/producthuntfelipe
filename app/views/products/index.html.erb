@@ -1,21 +1,23 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-md-12">
 			
 			<h1>Productos</h1>
 
-			<table>
+			<table class="table">
 			    <tr>
 			        <th>Id</th>
 			        <th>Nombre</th>
 			        <th>URL</th>
 			      	<th>Descripción</th>
+			      	<th>Fecha</th>
 			    </tr>
 			    <% @products.each do |product| %>
 			    <tr>
 			        <td><%= product.id %></td>
 			        <td><%= product.name %></td>
 			        <td><%= product.url %></td>
+			        <td><%= product.description %></td>
 			        <td><%= product.description %></td>
 			    </tr>
 			    <% end %>
