@@ -11,7 +11,9 @@ class ProductsController < ApplicationController
 	def create
 		@product = Product.new(product_params)
 		if @product.save
+			flash[:success] = "Post successfully created"			
 			redirect_to products_path
+
 		else
 			render :new
 		end
@@ -28,10 +30,17 @@ class ProductsController < ApplicationController
 	def update
 		@product = Product.find(params[:id])
 		if @product.update(product_params)
-			redirect_to products_path, notice: "El producto ha sido producto ha sido modificado con éxito"
+			flash[:notice] = "Post successfully created"
+		    redirect_to products_path
 		else
 			render :edit
 		end
+	end
+	
+	def destroy
+		product = Product.find(params[:id])
+		product.destroy
+		redirect_to products_path, notice: "El producto fue eliminado con éxito"
 	end
 	
 	private
