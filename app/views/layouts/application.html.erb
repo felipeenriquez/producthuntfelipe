@@ -10,9 +10,9 @@
   </head>
 
   <body>
-  	<% if flash[:notice] %>
-  		<div class="alert alert-info"><%= flash[:notice] %></div>
-  	<% end %>
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end %>
 
     <%= yield %>
   </body>
